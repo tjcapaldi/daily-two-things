@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Two Things</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<h1>What are your two things?</h1>
+
+<div class="row">
+<input type="checkbox" class="check">
+<input class="task" placeholder="Thing #1">
+</div>
+
+<div class="row">
+<input type="checkbox" class="check">
+<input class="task" placeholder="Thing #2">
+</div>
+
+<!-- message area (used for both partial + full states) -->
+<div id="done"></div>
+
+<script>
+// grab elements
+const checks=document.querySelectorAll(".check");
+const done=document.getElementById("done");
+const originalBg = "#444";
+
+// messages for ONE checked
+const oneMessages = [
+"Just keep swimming! 🐠",
+"Finish him! 💪",
+"Let's get ready to rumble! 🥊",
+"Do or do not, there is no try. 🚀",
+"Nothin' left to do but to do it. ⏳"
+];
+
+// messages for BOTH checked
+const successMessages = [
+"Yippe-ki-yay! 🏢",
+"Cowabunga! 🐢",
+"That's what I'm talkin' about! 🎉",
+"Boom shakalaka! 🔥",
+"Oh yeah! 💥",
+"Flawless victory! 🥷",
+"Nothin' but net! 🏀",
+"Yeah, baby! 😎",
+"Excellent! 🤘",
+"You're king of the world! 👑"
+];
+
+// random picker function
+function randomFrom(arr){
+return arr[Math.floor(Math.random()*arr.length)];
+}
+
+// pastel background generator
+function pastel(){
+return `hsl(${Math.random()*360},60%,65%)`;
+}
+
+// runs when any checkbox changes
+checks.forEach(c=>c.onchange=()=>{
+const checkedCount = [...checks].filter(x=>x.checked).length;
+
+// BOTH checked
+if(checkedCount === checks.length){
+done.textContent = randomFrom(successMessages); // random success msg
+done.style.opacity=1;
+done.classList.add("show","big"); // stronger animation
+document.body.style.background=pastel();
+
+// ONE checked
+}else if(checkedCount === 1){
+done.textContent = randomFrom(oneMessages); // random mid msg
+done.style.opacity=1;
+done.classList.add("show");
+done.classList.remove("big"); // subtle animation
+document.body.style.background=originalBg;
+
+// NONE checked
+}else{
+done.style.opacity=0;
+done.classList.remove("show","big");
+document.body.style.background=originalBg;
+}
+});
+</script>
+</body>
+</html>
