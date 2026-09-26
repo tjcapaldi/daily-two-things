@@ -9,7 +9,7 @@ A tiny browser-based app for tracking your two most important tasks each day.
 - Focus on just two priorities
 - Fun motivational messages as tasks are completed
 - Animated UI with dynamic background changes
-- No dependencies—just HTML, CSS, and JavaScript
+- No dependencies - just HTML, CSS, and JavaScript
 
 ## Running
 
