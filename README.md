@@ -2,7 +2,7 @@
 
 A tiny browser-based app for tracking your two most important tasks each day.
 
-[Try the Live Demo!](https://tjcapaldi.github.io/daily-two-things/)
+[→ Try the Live Demo!](https://tjcapaldi.github.io/daily-two-things/)
 
 ## Features
 
